@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+use App\Modules\PingModule;
 use Illuminate\Support\Facades\Route;
 
 enum Module: string
 {
+    case Ping = PingModule::class;
+
     public static function loadWebRoutes(): void
     {
         foreach (self::web() as $module) {
